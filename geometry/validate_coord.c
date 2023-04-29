@@ -1,4 +1,4 @@
-#include "rectangle.h"
+#include "geometry.h"
 
 void validate_coord(int down_border, int* coord, int up_border){
     if (*coord < down_border){

@@ -1,4 +1,4 @@
-#include "rectangle.h"
+#include "geometry.h"
 
 void swap_coords(int* a, int* b){
     int t = *a;

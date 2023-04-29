@@ -1,4 +1,4 @@
-#include "CLI.h"
+#include "rectangle_parcer.h"
 
 int rectangle_parser(int argc, char** argv){
 
@@ -18,7 +18,6 @@ int rectangle_parser(int argc, char** argv){
 
     Rect_args* rect_args = (Rect_args*)create_struct(RECT_ARGS);
     *rect_args = (Rect_args){NULL, NULL, -1, NULL, NULL, NULL, NULL};
-    int arg_sum = 0;
 
     int opt;
     int command_index = 0;

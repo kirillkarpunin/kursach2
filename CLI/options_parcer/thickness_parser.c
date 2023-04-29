@@ -1,4 +1,4 @@
-#include "CLI.h"
+#include "options_parcer.h"
 
 void thickness_parser(char* str, int* p_thickness){
     char* end = "\0";

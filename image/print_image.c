@@ -38,6 +38,4 @@ int print_image(Image* image, char* old_file_name, char* new_file_name){
     fclose(fout);
     free(garbage);
     return 0;
-
-    //TODO: destroy image
 }

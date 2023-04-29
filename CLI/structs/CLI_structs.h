@@ -1,5 +1,7 @@
 #pragma once
 
+#include "string.h"
+
 #define COORDS 1
 typedef struct Coords{
     int x;

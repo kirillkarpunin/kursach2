@@ -1,4 +1,4 @@
-#include "CLI.h"
+#include "CLI_structs.h"
 
 void* create_struct(int key){
     void* mem;
