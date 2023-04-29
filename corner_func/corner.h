@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../image/image.h"
-#include "../CLI/structs/CLI_structs.h"
+#include "../CLI/CLI_structs.h"
 #include "../geometry/geometry.h"
 
-int corner(Corner_args* corner_args);
+int corner(Coords start, Coords end, int angle, char* path, char* new_path);

@@ -1,39 +1,29 @@
 #include "options_parser.h"
 
-void color_parser(char* str, Color** p_color){
-    Color* color = (Color*)malloc(sizeof(Color));
-    if (color == NULL) return;
+int color_parser(char* str, Color* p_color){
 
-    char* end = "\0";
+    char* end_r = "\0";
+    char* end_g = "\0";
+    char* end_b = "\0";
 
-    str = strtok(str, " \t,");
-    if (str == NULL) return;
-    int r = (int)strtol(str, &end, 10);
-    if (r < 0 || r > 255 || r == 0 && strcmp(str, "0") != 0 || strcmp(end, "\0") != 0){
-        return;
+    char* str_r = strtok(str, ",");
+    char* str_g = strtok(NULL, ",");
+    char* str_b = strtok(NULL, ",");
+    char* str_end = strtok(NULL, "");
+
+    if (str_r != NULL && str_g != NULL && str_b != NULL, str_end == NULL){
+        int r = (int)strtol(str_r, &end_r, 10);
+        int g = (int)strtol(str_g, &end_g, 10);
+        int b = (int)strtol(str_b, &end_b, 10);
+
+        if (strcmp(end_r, "\0") == 0 && strcmp(end_g, "\0") == 0 && strcmp(end_b, "\0") == 0){
+            if (0 <= r && r <= 255 && 0 <= g && g <= 255 && 0 <= b && b <= 255){
+                *p_color = (Color){r, g, b};
+                return 0;
+            }
+            return 1;
+        }
+        return 1;
     }
-    color->r = r;
-
-    str = strtok(NULL, " \t,");
-    if (str == NULL) return;
-    int g = (int)strtol(str, &end, 10);
-    if (g < 0 || g > 255 || g == 0 && strcmp(str, "0") != 0 || strcmp(end, "\0") != 0){
-        return;
-    }
-    color->g = g;
-
-    str = strtok(NULL, " \t");
-    if (str == NULL) return;
-    int b = (int)strtol(str, &end, 10);
-    if (b < 0 || b > 255 || b == 0 && strcmp(str, "0") != 0 || strcmp(end, "\0") != 0){
-        return;
-    }
-    color->b = b;
-
-    str = strtok(NULL, "");
-    if (str != NULL) {
-        return;
-    }
-
-    *p_color = color;
+    return 1;
 }

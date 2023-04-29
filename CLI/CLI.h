@@ -7,7 +7,7 @@
 #include "string.h"
 #include "ctype.h"
 
-#include "structs/CLI_structs.h"
+#include "CLI_structs.h"
 #include "options_parser/options_parser.h"
 #include "rectangle_parser/rectangle_parser.h"
 #include "corner_parser/corner_parser.h"

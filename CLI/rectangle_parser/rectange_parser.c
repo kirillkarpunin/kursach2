@@ -16,63 +16,79 @@ int rectangle_parser(int argc, char** argv){
 
     opterr = 0;
 
-    Rect_args* rect_args = create_struct(RECT_ARGS);
-    if (rect_args == NULL) {
-        error_message(MEMORY);
-        return 1;
-    }
-    *rect_args = (Rect_args){NULL, NULL, -1, NULL, NULL, NULL, NULL};
+    Rect_args args;
+    args.new_path = NULL;
+
+    int is_filled = 0;
+    int arg_sum = 0;
 
     int opt;
     int option_index = 0;
     while ( (opt = getopt_long(argc, argv, short_ops, long_ops, &option_index)) != -1) {
         switch (opt) {
-            case 'A':
-                coords_parser(optarg, &(rect_args->start));
-                if (rect_args->start == NULL){
+
+            case 'A': {
+                Coords coords;
+                if (coords_parser(optarg, &coords) != 0){
                     error_message(INVALID_COORDS);
                     return 1;
                 }
+                args.start = coords;
+                arg_sum |= 1;
                 break;
+            }
 
-            case 'B':
-                coords_parser(optarg, &(rect_args->end));
-                if (rect_args->end == NULL){
+            case 'B': {
+                Coords coords;
+                if (coords_parser(optarg, &coords) != 0){
                     error_message(INVALID_COORDS);
                     return 1;
                 }
+                args.end = coords;
+                arg_sum |= (1 << 1);
                 break;
+            }
 
-            case 't':
-                thickness_parser(optarg, &(rect_args->thickness));
-                if (rect_args->thickness == -1){
+            case 't': {
+                int thickness;
+                if (thickness_parser(optarg, &thickness) != 0){
                     error_message(INVALID_THICKNESS);
                     return 1;
                 }
+                args.thickness = thickness;
+                arg_sum |= (1 << 2);
                 break;
+            }
 
-            case 'c':
-                color_parser(optarg, &(rect_args->color));
-                if (rect_args->color == NULL){
+            case 'c': {
+                Color color;
+                if (color_parser(optarg, &color) != 0){
                     error_message(INVALID_COLOR);
                     return 1;
                 }
+                args.color = color;
+                arg_sum |= (1 << 3);
                 break;
+            }
 
-            case 'f':
-                color_parser(optarg, &(rect_args->fill_color));
-                if (rect_args->fill_color == NULL){
+            case 'f': {
+                Color color;
+                if (color_parser(optarg, &color) != 0){
                     error_message(INVALID_COLOR);
                     return 1;
                 }
+                args.fill_color = color;
+                is_filled = 1;
                 break;
+            }
 
             case 'n':
-                rect_args->new_path = optarg;
+                args.new_path = optarg;
                 break;
 
             case 'o':
-                rect_args->path = optarg;
+                args.path = optarg;
+                arg_sum |= (1 << 4);
                 break;
 
             case '?':
@@ -88,12 +104,12 @@ int rectangle_parser(int argc, char** argv){
         }
     }
 
-    if (rect_args->start == NULL || rect_args->end == NULL || rect_args->color == NULL || rect_args->path == NULL || rect_args->thickness == -1){
+    if (arg_sum != RECT_REQ_ARG_SUM){
         error_message(INVALID_INPUT_NOT_ENOUGH);
         return 1;
     }
 
-    int code = rectangle(rect_args);
+    int code = rectangle(args.start, args.end, args.color, args.thickness, is_filled, args.fill_color, args.path, args.new_path);
     if (code != 0) {
         error_message(code);
         return 1;

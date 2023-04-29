@@ -1,31 +1,23 @@
 #include "options_parser.h"
 
-void coords_parser(char* str, Coords** p_coords){
-    Coords* coords = (Coords*) create_struct(COORDS);
-    if (coords == NULL) return;
+int coords_parser(char* str, Coords* p_coords){
 
-    char* end = "\0";
+    char* end_x = "\0";
+    char* end_y = "\0";
 
-    str = strtok(str, " \t,");
-    if (str == NULL) return;
-    int coord = (int)strtol(str, &end, 10);
-    if (coord == 0 && strcmp(str, "0") != 0 || strcmp(end, "\0") != 0){
-        return;
+    char* str_x = strtok(str, ",");
+    char* str_y = strtok(NULL, ",");
+    char* str_end = strtok(NULL, "");
+
+    if (str_x != NULL && str_y != NULL && str_end == NULL){
+        int x = (int)strtol(str_x, &end_x, 10);
+        int y = (int)strtol(str_y, &end_y, 10);
+
+        if (strcmp(end_x, "\0") == 0 && strcmp(end_y, "\0") == 0){
+            *p_coords = (Coords){x,y};
+            return 0;
+        }
+        return 1;
     }
-    coords->x = coord;
-
-    str = strtok(NULL, " \t");
-    if (str == NULL) return;
-    coord = (int)strtol(str, &end, 10);
-    if (coord == 0 && strcmp(str, "0") != 0 || strcmp(end, "\0") != 0){
-        return;
-    }
-    coords->y = coord;
-
-    str = strtok(NULL, "");
-    if (str != NULL){
-        return;
-    }
-
-    *p_coords = coords;
+    return 1;
 }

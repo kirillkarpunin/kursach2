@@ -42,10 +42,6 @@ void error_message(int code){
             fprintf(stderr, "Invalid input: Not all necessary arguments given\n");
             break;
 
-        case MEMORY:
-            fprintf(stderr, "Unable to allocate memory\n");
-            break;
-
         case INVALID_ANGLE:
             fprintf(stderr, "Invalid input: Invalid angle\nUse -h or --help to see formats\n");
             break;
