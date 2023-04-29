@@ -2,7 +2,7 @@
 
 int function_parser(int argc, char** argv){
 
-    char* short_ops = "hrfce";
+    char* short_ops = "hrfc";
     static struct option long_ops[] = {
             {"help", no_argument, 0, 'h'},
             {"rectangle", no_argument, 0, 'r'},
@@ -26,8 +26,7 @@ int function_parser(int argc, char** argv){
             printf("frame\n");
             return 0;
         case 'c':
-            printf("corner\n");
-            return 0;
+            return corner_parser(argc, argv);
         default:
             error_message(UNKNOWN_COMMAND);
             return 1;

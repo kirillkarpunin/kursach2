@@ -1,11 +1,11 @@
-#include "rectangle_parcer.h"
+#include "rectangle_parser.h"
 
 int rectangle_parser(int argc, char** argv){
 
-    char* short_ops = "a:b:c:t:f:n:o:";
+    char* short_ops = "A:B:c:t:f:n:o:";
     struct option long_ops[] = {
-            {"point1", required_argument, 0, 'a'},
-            {"point2", required_argument, 0, 'b'},
+            {"point1", required_argument, 0, 'A'},
+            {"point2", required_argument, 0, 'B'},
             {"thickness", required_argument, 0, 't'},
             {"color", required_argument, 0, 'c'},
             {"fill_color", required_argument, 0, 'f'},
@@ -16,14 +16,18 @@ int rectangle_parser(int argc, char** argv){
 
     opterr = 0;
 
-    Rect_args* rect_args = (Rect_args*)create_struct(RECT_ARGS);
+    Rect_args* rect_args = create_struct(RECT_ARGS);
+    if (rect_args == NULL) {
+        error_message(MEMORY);
+        return 1;
+    }
     *rect_args = (Rect_args){NULL, NULL, -1, NULL, NULL, NULL, NULL};
 
     int opt;
-    int command_index = 0;
-    while ( (opt = getopt_long(argc, argv, short_ops, long_ops, &command_index)) != -1) {
+    int option_index = 0;
+    while ( (opt = getopt_long(argc, argv, short_ops, long_ops, &option_index)) != -1) {
         switch (opt) {
-            case 'a':
+            case 'A':
                 coords_parser(optarg, &(rect_args->start));
                 if (rect_args->start == NULL){
                     error_message(INVALID_COORDS);
@@ -31,7 +35,7 @@ int rectangle_parser(int argc, char** argv){
                 }
                 break;
 
-            case 'b':
+            case 'B':
                 coords_parser(optarg, &(rect_args->end));
                 if (rect_args->end == NULL){
                     error_message(INVALID_COORDS);
@@ -72,7 +76,7 @@ int rectangle_parser(int argc, char** argv){
                 break;
 
             case '?':
-                if (strchr("abctfno", optopt) != NULL){
+                if (strchr("ABctfno", optopt) != NULL){
                     error_message(INVALID_INPUT_REQ_ARG);
                     return 1;
                 } else {
@@ -92,6 +96,7 @@ int rectangle_parser(int argc, char** argv){
     int code = rectangle(rect_args);
     if (code != 0) {
         error_message(code);
+        return 1;
     }
     return 0;
 }

@@ -1,5 +1,7 @@
+#pragma once
+
 #include "../image/image.h"
-#include "../CLI/CLI.h"
+#include "../CLI/structs/CLI_structs.h"
 #include "../geometry/geometry.h"
 
 int rectangle(Rect_args* rect_args);

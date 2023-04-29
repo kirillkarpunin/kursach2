@@ -5,6 +5,8 @@
 #include "stdlib.h"
 #include "../errors/errors.h"
 
+Image* create_image(unsigned int width, unsigned int height);
+
 Image* scan_image(char* file_name);
 
 int print_image(Image* image, char* old_file_name, char* new_file_name);

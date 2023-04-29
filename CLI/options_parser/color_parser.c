@@ -1,4 +1,4 @@
-#include "options_parcer.h"
+#include "options_parser.h"
 
 void color_parser(char* str, Color** p_color){
     Color* color = (Color*)malloc(sizeof(Color));

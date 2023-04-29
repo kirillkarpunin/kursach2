@@ -35,11 +35,19 @@ void error_message(int code){
             break;
 
         case INVALID_THICKNESS:
-            fprintf(stderr, "Invalid input: Invalid thickness\nUse -h or --help to see formats\n");
+            fprintf(stderr, "Invalid input: Invalid thickness\n");
             break;
 
         case INVALID_INPUT_NOT_ENOUGH:
-            fprintf(stderr, "Invalid input: Not all necessary arguments given\nUse -h or --help to see formats\n");
+            fprintf(stderr, "Invalid input: Not all necessary arguments given\n");
+            break;
+
+        case MEMORY:
+            fprintf(stderr, "Unable to allocate memory\n");
+            break;
+
+        case INVALID_ANGLE:
+            fprintf(stderr, "Invalid input: Invalid angle\nUse -h or --help to see formats\n");
             break;
 
         default:

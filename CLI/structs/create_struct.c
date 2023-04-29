@@ -15,6 +15,10 @@ void* create_struct(int key){
             mem = (Rect_args*)malloc(sizeof(Rect_args));
             return mem;
 
+        case CORNER_ARGS:
+            mem = (Corner_args*)malloc(sizeof(Corner_args));
+            return mem;
+
         default:
             return NULL;
     }

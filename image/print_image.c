@@ -3,7 +3,6 @@
 int print_image(Image* image, char* old_file_name, char* new_file_name){
     FILE* f = fopen(old_file_name, "rb");
     if (f == NULL) {
-        //destroy
         return UNABLE_TO_OPEN_FILE;
     }
 
@@ -20,7 +19,6 @@ int print_image(Image* image, char* old_file_name, char* new_file_name){
     else fout= fopen(old_file_name, "wb");
 
     if (fout == NULL) {
-        //destroy
         return UNABLE_TO_CREATE_NEW_FILE;
     }
 

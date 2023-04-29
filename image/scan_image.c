@@ -14,17 +14,13 @@ Image* scan_image(char* file_name){
 
     fseek(f, bmfh.pixelArrOffset, SEEK_SET);
 
-    RGB** matrix = malloc(bmih.height * sizeof(RGB*));
-    for (int i = bmih.height; i > 0; i--){
-        matrix[i-1] = malloc(bmih.width * sizeof(RGB));
-        fread(matrix[i-1], sizeof(RGB), bmih.width, f);
-        fseek(f, count_offset(bmih.width), SEEK_CUR);
+    Image* image = create_image(bmih.width, bmih.height);
+    for (int i = (int)bmih.height; i > 0; i--){
+        fread(image->matrix[i-1], sizeof(RGB), bmih.width, f);
+        fseek(f, count_offset((int)bmih.width), SEEK_CUR);
     }
 
     fclose(f);
-
-    Image* image = malloc(sizeof(Image));
-    *image = (Image){bmih.width, bmih.height, matrix};
 
     return image;
 }

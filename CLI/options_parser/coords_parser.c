@@ -1,4 +1,4 @@
-#include "options_parcer.h"
+#include "options_parser.h"
 
 void coords_parser(char* str, Coords** p_coords){
     Coords* coords = (Coords*) create_struct(COORDS);

@@ -8,8 +8,9 @@
 #include "ctype.h"
 
 #include "structs/CLI_structs.h"
-#include "options_parcer/options_parcer.h"
-#include "rectangle_parcer/rectangle_parcer.h"
+#include "options_parser/options_parser.h"
+#include "rectangle_parser/rectangle_parser.h"
+#include "corner_parser/corner_parser.h"
 
 #include "../errors/errors.h"
 

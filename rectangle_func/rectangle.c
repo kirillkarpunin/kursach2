@@ -1,31 +1,32 @@
 #include "rectangle.h"
 
 int rectangle(Rect_args* rect_args){
-    if (rect_args->thickness == 0) return 0;
 
     Image* image = scan_image(rect_args->path);
     if (image == NULL) {
         return UNABLE_TO_OPEN_FILE;
     }
 
-    validate_coord(0, &(rect_args->start->x), image->width-1);
-    validate_coord(0, &(rect_args->start->y), image->height-1);
-    validate_coord(0, &(rect_args->end->x), image->width-1);
-    validate_coord(0, &(rect_args->end->y), image->height-1);
+    if (rect_args->thickness != 0)
+    {
+        validate_coord(0, &(rect_args->start->x), image->width-1);
+        validate_coord(0, &(rect_args->start->y), image->height-1);
+        validate_coord(0, &(rect_args->end->x), image->width-1);
+        validate_coord(0, &(rect_args->end->y), image->height-1);
 
-    if (rect_args->start->x > rect_args->end->x) swap_coords(&(rect_args->start->x), &(rect_args->end->x));
-    if (rect_args->start->y > rect_args->end->y) swap_coords(&(rect_args->start->y), &(rect_args->end->y));
+        if (rect_args->start->x > rect_args->end->x) swap_coords(&(rect_args->start->x), &(rect_args->end->x));
+        if (rect_args->start->y > rect_args->end->y) swap_coords(&(rect_args->start->y), &(rect_args->end->y));
 
-    recursive_draw(image, rect_args->start, rect_args->end, rect_args->color, rect_args->thickness);
+        recursive_draw(image, rect_args->start, rect_args->end, rect_args->color, rect_args->thickness);
 
-    if (rect_args->fill_color && (rect_args->end->x) - (rect_args->start->x) - 2*(rect_args->thickness-1) > 1 &&
-    (rect_args->end->y) - (rect_args->start->y) - 2*(rect_args->thickness-1) > 1){
-        (rect_args->start->x)++;
-        (rect_args->start->y)++;
-        (rect_args->end->x)--;
-        (rect_args->end->y)--;
-        recursive_draw(image, rect_args->start, rect_args->end, rect_args->fill_color, -1);
-
+        if (rect_args->fill_color && (rect_args->end->x) - (rect_args->start->x) - 2*(rect_args->thickness-1) > 1 &&
+            (rect_args->end->y) - (rect_args->start->y) - 2*(rect_args->thickness-1) > 1){
+            (rect_args->start->x)++;
+            (rect_args->start->y)++;
+            (rect_args->end->x)--;
+            (rect_args->end->y)--;
+            recursive_draw(image, rect_args->start, rect_args->end, rect_args->fill_color, -1);
+        }
     }
 
 
