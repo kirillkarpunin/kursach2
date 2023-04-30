@@ -31,7 +31,7 @@ int rectangle(Coords start, Coords end, Color color, int thickness, int is_fille
 
     int code = print_image(image, path, new_path);
 
-    destroy_image(image);
+    destroy_canvas(image);
 
     if (code != 0) return code;
     return 0;

@@ -14,7 +14,7 @@ Image* scan_image(char* file_name){
 
     fseek(f, bmfh.pixelArrOffset, SEEK_SET);
 
-    Image* image = create_image(bmih.width, bmih.height);
+    Image* image = create_canvas(bmih.width, bmih.height);
     for (int i = (int)bmih.height; i > 0; i--){
         fread(image->matrix[i-1], sizeof(RGB), bmih.width, f);
         fseek(f, count_offset((int)bmih.width), SEEK_CUR);

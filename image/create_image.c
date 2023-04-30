@@ -1,6 +1,6 @@
 #include "image.h"
 
-Image* create_image(unsigned int width, unsigned int height){
+Image* create_canvas(unsigned int width, unsigned int height){
 
     RGB** matrix = malloc(height*sizeof(RGB*));
 

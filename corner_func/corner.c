@@ -6,8 +6,8 @@ int corner(Coords start, Coords end, int angle, char* path, char* new_path){
         return UNABLE_TO_OPEN_FILE;
     }
 
-    Image* copy = create_image(image->width, image->height);
-    copy_image(image, copy);
+    Image* copy = create_canvas(image->width, image->height);
+    copy_canvas(image, copy);
 
 
     if (angle != 0) {
@@ -42,8 +42,8 @@ int corner(Coords start, Coords end, int angle, char* path, char* new_path){
 
     int code = print_image(copy, path, new_path);
 
-    destroy_image(image);
-    destroy_image(copy);
+    destroy_canvas(image);
+    destroy_canvas(copy);
 
     if (code != 0) return code;
     return 0;
