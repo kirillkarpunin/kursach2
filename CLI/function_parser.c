@@ -18,7 +18,7 @@ int function_parser(int argc, char** argv){
 
     switch (opt) {
         case 'h':
-            printf("help\n");
+            help_message();
             return 0;
         case 'r':
             return rectangle_parser(argc, argv);

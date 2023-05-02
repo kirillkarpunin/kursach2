@@ -4,7 +4,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "../CLI/CLI_structs.h"
-#include "../errors/errors.h"
+#include "../messages/errors.h"
 
 Image* create_canvas(unsigned int width, unsigned int height);
 
