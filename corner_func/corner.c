@@ -7,7 +7,7 @@ int corner(Coords start, Coords end, int angle, char* path, char* new_path){
     }
 
     Image* copy = create_canvas(image->width, image->height);
-    copy_canvas(image, copy);
+    copy_canvas(image, copy, (Coords){0, 0});
 
 
     if (angle != 0) {

@@ -23,8 +23,7 @@ int function_parser(int argc, char** argv){
         case 'r':
             return rectangle_parser(argc, argv);
         case 'f':
-            printf("frame\n");
-            return 0;
+            return frame_parser(argc, argv);
         case 'c':
             return corner_parser(argc, argv);
         default:

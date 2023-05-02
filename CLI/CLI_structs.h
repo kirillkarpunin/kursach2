@@ -31,3 +31,11 @@ typedef struct Corner_args{
     char* path;
     char* new_path;
 } Corner_args;
+
+typedef struct Frame_args{
+    int thickness;
+    int version;
+    Color color;
+    char* path;
+    char* new_path;
+} Frame_args;

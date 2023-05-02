@@ -12,6 +12,11 @@ int print_image(Image* image, char* old_file_name, char* new_file_name){
     fread(&bmfh, sizeof(bmfh), 1, f);
     fread(&bmih, sizeof(bmih), 1, f);
 
+    bmih.width = image->width;
+    bmih.height = image->height;
+    bmih.imageSize = (bmih.width * sizeof(RGB) + count_offset(bmih.width)) * bmih.height;
+    bmfh.filesize = sizeof(bmfh) + bmih.headerSize + bmih.imageSize;
+
     fclose(f);
 
     FILE* fout;

@@ -46,7 +46,12 @@ void error_message(int code){
             fprintf(stderr, "Invalid input: Invalid angle\nUse -h or --help to see formats\n");
             break;
 
+        case INVALID_VERSION:
+            fprintf(stderr, "Invalid input: Invalid version\nUse -h or --help to see formats\n");
+            break;
+
         default:
+            fprintf(stderr, "Unknown error\n");
             break;
     }
 }

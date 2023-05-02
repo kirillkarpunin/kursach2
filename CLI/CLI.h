@@ -11,6 +11,7 @@
 #include "options_parser/options_parser.h"
 #include "rectangle_parser/rectangle_parser.h"
 #include "corner_parser/corner_parser.h"
+#include "frame_parser/frame_parser.h"
 
 #include "../errors/errors.h"
 

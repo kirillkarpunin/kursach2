@@ -13,5 +13,6 @@
 #define INVALID_THICKNESS 8
 #define INVALID_ANGLE 9
 #define INVALID_INPUT_NOT_ENOUGH 10
+#define INVALID_VERSION 11
 
 void error_message(int code);
