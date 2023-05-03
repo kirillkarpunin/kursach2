@@ -2,6 +2,7 @@
 
 void help_message(){
     fprintf(stdout, "\n"
+                   "DONT FORGET TO ENABLE FILE CHECK!!!!!!!!!!!!!!!!\n"
                    " -------------------------\n"
                    "| BMP graphic processor   |\n"
                    "|                         |\n"

@@ -122,9 +122,6 @@ void hearts(Image* image, Color color_prim){
             int t_y = y % HEARTS_SIZE;
             int t_x = x % HEARTS_SIZE;
 
-
-
-
             if (3 < t_y && t_y < 12 && 2 < t_x && t_x < 12 && !(t_x == 7 && t_y == 4))
             {
                 if (t_y <= t_x + 4 && t_y <= HEARTS_SIZE - t_x + 3 && t_y >= HEARTS_SIZE - t_x - 7 && t_y >= t_x - 6)
