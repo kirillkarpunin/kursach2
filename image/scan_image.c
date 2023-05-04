@@ -9,8 +9,8 @@ Image* scan_image(char* file_name){
 
     fread(&bmfh, sizeof(bmfh), 1, f);
     fread(&bmih, sizeof(bmih), 1, f);
-    if (bmih.headerSize != 40 || bmih.bitsPerPixel != 24 || bmih.compression != 0)
-//        return NULL;
+    if (bmfh.signature != 0x4d42 || bmih.headerSize != 40 || bmih.bitsPerPixel != 24 || bmih.compression != 0)
+        return NULL;
 
     fseek(f, bmfh.pixelArrOffset, SEEK_SET);
 
