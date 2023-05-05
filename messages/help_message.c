@@ -12,7 +12,7 @@ void help_message(){
                    "            - BMP format\n"
                    "            - 40-byte DIB header size\n"
                    "            - 24-bit color\n"
-                   "            cd pr/- Without compression\n"
+                   "            - Without compression\n"
                    "\n"
                    "Usage:      ./bgp [options]\n"
                    "\n"
