@@ -3,13 +3,7 @@
 void error_message(int code){
     switch (code) {
         case UNABLE_TO_OPEN_FILE:
-            fprintf(stderr, "\nUnable to open file\n"
-                            "Make sure that the path is correct\n"
-                            "Requirement for an image:\n"
-                            "\t- BMP format\n"
-                            "\t- 40-byte DIB header size\n"
-                            "\t- 24-bit color\n"
-                            "\t- Without compression\n");
+            fprintf(stderr, "\nUnable to open file\nMake sure that the path is correct\n");
             break;
 
         case UNABLE_TO_CREATE_NEW_FILE:
