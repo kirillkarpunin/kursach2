@@ -2,6 +2,11 @@
 
 int function_parser(int argc, char** argv){
 
+    if (argc == 1){
+        help_message();
+        return 0;
+    }
+
     char* short_ops = "hrfc";
     static struct option long_ops[] = {
             {"help", no_argument, 0, 'h'},

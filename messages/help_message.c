@@ -33,7 +33,7 @@ void help_message(){
                    "\n"
                    "                    -A | --point1       x,y                 set coordinates of the first point\n"
                    "                    -B | --point2       x,y                 set coordinates of the second point\n"
-                   "                    -a | --angle        x                   set the cornering angle in degrees (90, 180 or 270)\n"
+                   "                    -a | --angle        x                   set the cornering angle in degrees (90, 180 or 270) (counter clockwise)\n"
                    "                    -o | --origin_file  <path>.bmp          set the path of the origin image\n"
                    "                    -n | --new_file     <path>.bmp          set the path for a new image (optional)\n"
                    "\n"

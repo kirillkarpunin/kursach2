@@ -11,7 +11,7 @@ int color_parser(char* str, Color* p_color){
     char* str_b = strtok(NULL, ",");
     char* str_end = strtok(NULL, "");
 
-    if (str_r != NULL && str_g != NULL && str_b != NULL, str_end == NULL){
+    if (str_r != NULL && str_g != NULL && str_b != NULL && str_end == NULL){
         int r = (int)strtol(str_r, &end_r, 10);
         int g = (int)strtol(str_g, &end_g, 10);
         int b = (int)strtol(str_b, &end_b, 10);
