@@ -1,3 +1,0 @@
-/home/kirill/tmp/hm/cmake-build-debug/CMakeFiles/cw2.dir
-/home/kirill/tmp/hm/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/kirill/tmp/hm/cmake-build-debug/CMakeFiles/rebuild_cache.dir
