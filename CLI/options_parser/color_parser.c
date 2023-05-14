@@ -2,6 +2,8 @@
 
 int color_parser(char* str, Color* p_color){
 
+    if (count_sep(str) != 2) return 1;
+
     char* end_r = "\0";
     char* end_g = "\0";
     char* end_b = "\0";

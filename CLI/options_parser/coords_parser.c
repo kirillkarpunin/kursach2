@@ -2,6 +2,8 @@
 
 int coords_parser(char* str, Coords* p_coords){
 
+    if (count_sep(str) != 1) return 1;
+
     char* end_x = "\0";
     char* end_y = "\0";
 

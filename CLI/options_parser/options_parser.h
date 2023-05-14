@@ -12,3 +12,5 @@ int thickness_parser(char* str, int* p_thickness);
 int angle_parser(char* str, int* p_angle);
 
 int version_parser(char* str, int* p_version);
+
+int count_sep(char* str);
