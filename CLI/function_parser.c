@@ -7,9 +7,10 @@ int function_parser(int argc, char** argv){
         return 0;
     }
 
-    char* short_ops = "hrfc";
+    char* short_ops = "hrfci:";
     static struct option long_ops[] = {
             {"help", no_argument, 0, 'h'},
+            {"info", required_argument, 0, 'i'},
             {"rectangle", no_argument, 0, 'r'},
             {"frame", no_argument, 0, 'f'},
             {"corner", no_argument, 0, 'c'},
@@ -25,6 +26,8 @@ int function_parser(int argc, char** argv){
         case 'h':
             help_message();
             return 0;
+        case 'i':
+            return info(optarg);
         case 'r':
             return rectangle_parser(argc, argv);
         case 'f':

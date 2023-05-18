@@ -4,7 +4,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "../CLI/CLI_structs.h"
-#include "../messages/errors.h"
+#include "../messages/messages.h"
 
 Image* create_canvas(unsigned int width, unsigned int height);
 
@@ -17,3 +17,5 @@ int print_image(Image* image, char* old_file_name, char* new_file_name);
 void destroy_canvas(Image* image);
 
 unsigned int count_offset(int width);
+
+int info(char* path);

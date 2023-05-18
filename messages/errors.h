@@ -1,7 +1,5 @@
 #pragma once
 
-#include "stdio.h"
-
 #define UNABLE_TO_OPEN_FILE 1
 #define UNABLE_TO_CREATE_NEW_FILE 2
 #define UNKNOWN_COMMAND 3
@@ -15,4 +13,3 @@
 #define INVALID_INPUT_NOT_ENOUGH 10
 #define INVALID_VERSION 11
 
-void error_message(int code);

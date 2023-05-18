@@ -13,8 +13,7 @@
 #include "corner_parser/corner_parser.h"
 #include "frame_parser/frame_parser.h"
 
-#include "../messages/errors.h"
-#include "../messages/help_message.h"
+#include "../messages/messages.h"
 
 int function_parser(int argc, char** argv);
 
