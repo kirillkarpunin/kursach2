@@ -34,8 +34,15 @@ int function_parser(int argc, char** argv){
             return frame_parser(argc, argv);
         case 'c':
             return corner_parser(argc, argv);
+        case '?':
+            if (optopt == 'i'){
+                error_message(INVALID_INPUT_NOT_ENOUGH);
+                return 1;
+            } else {
+                error_message(UNKNOWN_COMMAND);
+                return 1;
+            }
         default:
-            error_message(UNKNOWN_COMMAND);
-            return 1;
+            break;
     }
 }
