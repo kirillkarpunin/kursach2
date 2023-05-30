@@ -39,3 +39,8 @@ typedef struct Frame_args{
     char* path;
     char* new_path;
 } Frame_args;
+
+typedef struct Gray_args{
+    char* path;
+    char* new_path;
+} Gray_args;

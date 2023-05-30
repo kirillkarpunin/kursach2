@@ -12,6 +12,7 @@
 #include "rectangle_parser/rectangle_parser.h"
 #include "corner_parser/corner_parser.h"
 #include "frame_parser/frame_parser.h"
+#include "grayscale_parser/grayscale_parser.h"
 
 #include "../messages/messages.h"
 

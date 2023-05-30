@@ -44,5 +44,10 @@ void help_message(){
                    "                    -c | --color        x,y,z               set the color of the frame\n"
                    "                    -o | --origin_file  <path>.bmp          set the path of the origin image\n"
                    "                    -n | --new_file     <path>.bmp          set the path for a new image (optional)\n"
+                   "\n"
+                   "            -g | --grayscale [options]      turn color image into grayscaled\n"
+                   "\n"
+                   "                    -o | --origin_file  <path>.bmp          set the path of the origin image\n"
+                   "                    -n | --new_file     <path>.bmp          set the path for a new image (optional)\n"
                    "\n");
 }

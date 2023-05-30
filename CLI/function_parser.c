@@ -7,8 +7,9 @@ int function_parser(int argc, char** argv){
         return 0;
     }
 
-    char* short_ops = "hrfci:";
+    char* short_ops = "ghrfci:";
     static struct option long_ops[] = {
+            {"grayscale", no_argument, 0, 'g'},
             {"help", no_argument, 0, 'h'},
             {"info", required_argument, 0, 'i'},
             {"rectangle", no_argument, 0, 'r'},
@@ -34,6 +35,8 @@ int function_parser(int argc, char** argv){
             return frame_parser(argc, argv);
         case 'c':
             return corner_parser(argc, argv);
+        case 'g':
+            return grayscale_parser(argc, argv);
         case '?':
             if (optopt == 'i'){
                 error_message(INVALID_INPUT_NOT_ENOUGH);
